@@ -1,0 +1,10 @@
+.nav-link.active{
+    background-color: #343a40 !important;
+}
+.nav-link{
+    color: #343a40;
+}
+.min-container{
+    max-width: 850px;
+    margin: 0 auto;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Examen de ingreso</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <h1 class="navbar-brand mb-0">Examen de Ingreso</h1>
+        </div>
+    </nav>
+
+    <div class="min-container mt-3 p-2 border rounded">
+        <h2 class="h4 text-center" id="titleTab">Vehículo</h2>
+        <div class="d-flex align-items-start">
+            <div class="nav flex-column nav-pills me-3" id="selector-tabs" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="tab-vehicle" data-bs-toggle="pill" data-bs-target="#panel-vehicle" type="button" role="tab" aria-controls="panel-vehicle" data-title="Vehículo" aria-selected="true">Vehículo</button>
+                <button class="nav-link" id="tab-domicilio" data-bs-toggle="pill" data-bs-target="#panel-domicilio" type="button" role="tab" aria-controls="panel-domicilio" data-title="Domicilio" aria-selected="false">Domicilio</button>
+            </div>
+            <div class="tab-content w-100">
+                <div class="tab-pane fade show active" id="panel-vehicle" role="tabpanel" aria-labelledby="panel-vehicle-tab">
+                    <!-- Formulario correspondiente vehículo -->
+                    <form id="form-vehicle">
+                        <div class="mb-3">
+                            <label for="marca" class="form-label">Marca</label>
+                            <select id="marca" name="marca" class="form-select" required></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="submarca" class="form-label">Submarca</label>
+                            <select id="submarca" name="submarca" class="form-select" disabled required>
+                                <option value="">Seleccione una opción</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modelo" class="form-label">Módelo</label>
+                            <select id="modelo" name="modelo" class="form-select" disabled required>
+                                <option value="">Seleccione una opción</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descipción</label>
+                            <select id="descripcion" name="descripcion" class="form-select" disabled required>
+                                <option value="">Seleccione una opción</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn mx-2" id="btn-reset-form-vehicle">Limpiar</button>
+                            <button type="submit" class="btn btn-dark">Validar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="panel-domicilio" role="tabpanel" aria-labelledby="panel-domicilio-tab">
+                    <!-- Formulario correspondiente a domicilio -->
+                    <form id="form-home">
+                        <div class="mb-3">
+                            <label for="cp" class="form-label">Código postal</label>
+                            <input type="text" id="cp" name="cp" class="form-control" pattern="[0-9]{3,5}" title="De 3 a 5 caracteres, solo numeros" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Estado</label>
+                            <input type="text" id="state" class="form-control" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Municipio</label>
+                            <input type="text" id="municipality" class="form-control" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Colonia</label>
+                            <input type="text" id="suburb" class="form-control" readonly>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn mx-2" id="btn-reset-form-home">Limpiar</button>
+                            <button type="submit" class="btn btn-dark">Validar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-vehicle-error" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Alerta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-message"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>
